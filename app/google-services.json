@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "310089384612",
+    "firebase_url": "https://restaurant-9a0d6-default-rtdb.firebaseio.com",
+    "project_id": "restaurant-9a0d6",
+    "storage_bucket": "restaurant-9a0d6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:310089384612:android:a7abcdf10a276ac6061c31",
+        "android_client_info": {
+          "package_name": "com.example.restaurant"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCeDnrx-vGFm9LhniTXQH4YfnzoqSQQwbo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:310089384612:android:07d49cd709a92667061c31",
+        "android_client_info": {
+          "package_name": "twin.developers.projectmqtt"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCeDnrx-vGFm9LhniTXQH4YfnzoqSQQwbo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
