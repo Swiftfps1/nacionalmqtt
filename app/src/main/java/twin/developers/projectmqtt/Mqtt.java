@@ -17,7 +17,7 @@ public class Mqtt {
     private static final String TAG = "Restourant";
     private static final String MQTT_SERVER = "tcp://broker.emqx.io:1883";
     //private static final String MQTT_SERVER = "tcp://127.0.0.1:1883";
-    private static final String CLIENT_ID = "AndroidSample12312312312312312";
+    private static final String CLIENT_ID = "AndroidSampleeee123";
     private static final String TOPIC = "restaurant/cheff";
     private static String MESSAGE = "";
     private static final int QOS = 2;
@@ -80,11 +80,11 @@ public class Mqtt {
         }
     }
 
-    public void publishMessage(String mensaje) {
+    public void publishMessage(String topic, String mensaje) {
         try {
             MqttMessage message = new MqttMessage(mensaje.getBytes());
             message.setQos(QOS);
-            mqttClient.publish(TOPIC, message);
+            mqttClient.publish(topic, message);
         } catch (MqttException e) {
             e.printStackTrace();
         }

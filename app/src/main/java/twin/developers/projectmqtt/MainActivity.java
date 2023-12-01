@@ -15,7 +15,7 @@ import com.google.firebase.database.ValueEventListener;
 public class MainActivity extends AppCompatActivity {
 
     private DatabaseReference databaseReference;
-    private Mqtt mqtt;
+    private Mqtt mqttManager;
     private double total = 0.0;
 
     @Override
@@ -27,20 +27,21 @@ public class MainActivity extends AppCompatActivity {
         databaseReference = FirebaseDatabase.getInstance().getReference("restaurant");
 
 
-        mqtt = new Mqtt(getApplicationContext());
+
 
         ImageButton Taco = findViewById(R.id.taco);
         ImageButton Sopa = findViewById(R.id.sopa);
         ImageButton Hamburguesa = findViewById(R.id.hamburguesa);
         ImageButton Ensalada = findViewById(R.id.ensalada);
         final TextView tvTotal = findViewById(R.id.total);
-
+        mqttManager = new Mqtt(getApplicationContext());
+        mqttManager.connectToMqttBroker();
         Taco.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 sumarYRegistrarPrecioEnFirebase("taco", 3000, tvTotal);
-
-                publishToMqtt("taco");
+                String taquito = "taco";
+                mqttManager.publishMessage("restaurant/cheff", taquito);
             }
         });
 
@@ -48,8 +49,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 sumarYRegistrarPrecioEnFirebase("sopa", 3000, tvTotal);
-
-                publishToMqtt("sopa");
+                String sopita = "sopa";
+                mqttManager.publishMessage("restaurant/cheff", sopita);
             }
         });
 
@@ -58,7 +59,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 sumarYRegistrarPrecioEnFirebase("hamburguesa", 5000, tvTotal);
 
-                publishToMqtt("hamburguesa");
+                String hamburguesita = "hamburguesa";
+                mqttManager.publishMessage("restaurant/cheff", hamburguesita);
             }
         });
 
@@ -67,7 +69,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 sumarYRegistrarPrecioEnFirebase("ensalada", 4000, tvTotal);
 
-                publishToMqtt("ensalada");
+                String fitnes = "ensalada";
+                mqttManager.publishMessage("restaurant/cheff", fitnes);
             }
         });
 
@@ -115,8 +118,5 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void publishToMqtt(String message) {
 
-        mqtt.publishMessage(message);
-    }
 }
